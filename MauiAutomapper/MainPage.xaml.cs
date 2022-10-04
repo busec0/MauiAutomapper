@@ -41,9 +41,12 @@ public partial class MainPage : ContentPage
             new Child() {Age = 3 },
         };
 
+        //works fine on both iOS and Android
         var result = DtoMapper.Map<List<ChildDto>>(children);
         System.Diagnostics.Debug.WriteLine(result);
 
+        //fails on iOS. Cannot map the Children property.
+        //NOTE: ANDROID WORKS FINE!
         var result1 = DtoMapper.Map<ParentDto>(parent);
         System.Diagnostics.Debug.WriteLine(result1);
 
